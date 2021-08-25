@@ -14,9 +14,9 @@
 
 ## Screenshot
 
- ![Continuous, Discrete, Custom Java layout](Images/with5Per.png) 
- ![Continuous, Discrete, Custom Java layout](Images/with30Per.png)
- ![Continuous, Discrete, Custom Java layout](Images/with300Per.png)
+ ![Continuous, Discrete, Custom Java layout](images/with5Per.png) 
+ ![Continuous, Discrete, Custom Java layout](images/with30Per.png)
+ ![Continuous, Discrete, Custom Java layout](images/with300Per.png)
 
 
 ## Installation
