@@ -6,12 +6,12 @@ import ohos.media.image.common.Rect;
 import ohos.media.image.common.Size;
 
 /**
- * BlurRenderer.
+ * BlurRenderer algorithm to add blurr to view
  *
  * @since 2021-08-06
  */
 
-public class BlurRenderer implements IRenderer {
+public class BlurRenderer implements Renderer {
     int rsumCal;
     int gsumCal;
     int bsumCal;
