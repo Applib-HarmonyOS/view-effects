@@ -18,7 +18,7 @@ public class BlurRenderer implements Renderer {
     int xaxisCal;
     int yaxisCal;
     int ivarCal;
-    int pVarCal;
+    int pvarCal;
     int yp;
     int yi;
     int yw;
@@ -90,14 +90,14 @@ public class BlurRenderer implements Renderer {
         yw = yi = 0;
         stack = new int[div][3];
         r1 = blurRadius + 1;
-        yAxis();
-        xAxis();
+        yaxisIdentify();
+        xaxisIdentify();
         bitmap.writePixels(pix, 0, width, region);
         return (bitmap);
     }
 
 
-    private void xAxis() {
+    private void xaxisIdentify() {
         for (xaxisCal = 0; xaxisCal < width; xaxisCal++) {
             rinSum = ginSum = binSum = routSum = goutSum = boutSum = rsumCal = gsumCal = bsumCal = 0;
             yp = -blurRadius * width;
@@ -139,10 +139,10 @@ public class BlurRenderer implements Renderer {
                 if (xaxisCal == 0) {
                     vminCal[yaxisCal] = Math.min(yaxisCal + r1, hm) * width;
                 }
-                pVarCal = xaxisCal + vminCal[yaxisCal];
-                sir[0] = rarrCal[pVarCal];
-                sir[1] = garrCal[pVarCal];
-                sir[2] = barrCal[pVarCal];
+                pvarCal = xaxisCal + vminCal[yaxisCal];
+                sir[0] = rarrCal[pvarCal];
+                sir[1] = garrCal[pvarCal];
+                sir[2] = barrCal[pvarCal];
                 rinSum += sir[0];
                 ginSum += sir[1];
                 binSum += sir[2];
@@ -162,15 +162,15 @@ public class BlurRenderer implements Renderer {
         }
     }
 
-    private void yAxis() {
+    private void yaxisIdentify() {
         for (yaxisCal = 0; yaxisCal < height; yaxisCal++) {
             rinSum = ginSum = binSum = routSum = goutSum = boutSum = rsumCal = gsumCal = bsumCal = 0;
             for (ivarCal = -blurRadius; ivarCal <= blurRadius; ivarCal++) {
-                pVarCal = pix[yi + Math.min(wm, Math.max(ivarCal, 0))];
+                pvarCal = pix[yi + Math.min(wm, Math.max(ivarCal, 0))];
                 sir = stack[ivarCal + blurRadius];
-                sir[0] = (pVarCal & 0xff0000) >> 16;
-                sir[1] = (pVarCal & 0x00ff00) >> 8;
-                sir[2] = (pVarCal & 0x0000ff);
+                sir[0] = (pvarCal & 0xff0000) >> 16;
+                sir[1] = (pvarCal & 0x00ff00) >> 8;
+                sir[2] = (pvarCal & 0x0000ff);
                 rbs = r1 - Math.abs(ivarCal);
                 rsumCal += sir[0] * rbs;
                 gsumCal += sir[1] * rbs;
@@ -201,10 +201,10 @@ public class BlurRenderer implements Renderer {
                 if (yaxisCal == 0) {
                     vminCal[xaxisCal] = Math.min(xaxisCal + blurRadius + 1, wm);
                 }
-                pVarCal = pix[yw + vminCal[xaxisCal]];
-                sir[0] = (pVarCal & 0xff0000) >> 16;
-                sir[1] = (pVarCal & 0x00ff00) >> 8;
-                sir[2] = (pVarCal & 0x0000ff);
+                pvarCal = pix[yw + vminCal[xaxisCal]];
+                sir[0] = (pvarCal & 0xff0000) >> 16;
+                sir[1] = (pvarCal & 0x00ff00) >> 8;
+                sir[2] = (pvarCal & 0x0000ff);
                 rinSum += sir[0];
                 ginSum += sir[1];
                 binSum += sir[2];
