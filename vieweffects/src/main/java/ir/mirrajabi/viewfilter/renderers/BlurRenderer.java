@@ -1,14 +1,14 @@
 package ir.mirrajabi.viewfilter.renderers;
 
 import ohos.media.image.PixelMap;
-import ir.mirrajabi.viewfilter.core.Renderer;
 import ohos.media.image.common.Rect;
 import ohos.media.image.common.Size;
+import ir.mirrajabi.viewfilter.core.Renderer;
 
 /**
- * BlurRenderer algorithm to add blurr to view
+ * BlurRenderer algorithm to add blurr to view.
  *
- * @since 2021-08-06
+ * @since 2021-08-06.
  */
 
 public class BlurRenderer implements Renderer {

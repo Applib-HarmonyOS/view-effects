@@ -9,13 +9,16 @@ import ohos.media.image.PixelMap;
 /**
  * ViewFilter.
  *
- * Getting background imageView and applying filter
+ * Getting background imageView and applying filter.
  */
 
 public class ViewFilter {
     private static ViewFilter instance = null;
     private Renderer renderer;
 
+    /**
+     * get ViewFiter instance.
+     */
     public static ViewFilter getInstance() {
         if (instance == null) {
             instance = new ViewFilter();
@@ -28,6 +31,11 @@ public class ViewFilter {
         return this;
     }
 
+    /**
+     * apply filter and updating the view.
+     *
+     * @param view view
+     */
     public void applyFilterOnView(final Component view) {
         EventHandler handler = new EventHandler(EventRunner.getMainEventRunner());
         handler.postTask(() -> {
@@ -38,6 +46,11 @@ public class ViewFilter {
         );
     }
 
+    /**
+     * Sending to render the background image.
+     *
+     * @param view view
+     */
     public PixelMap loadBitmapFromView(Component view) {
         PixelMapElement backgroundElement = (PixelMapElement) view.getBackgroundElement();
         PixelMap cropperBitMap = backgroundElement.getPixelMap();

@@ -16,9 +16,9 @@
 
 package com.huawei.blurvieweffect;
 
-import com.huawei.blurvieweffect.slice.MainAbilitySlice;
 import ohos.aafwk.ability.Ability;
 import ohos.aafwk.content.Intent;
+import com.huawei.blurvieweffect.slice.MainAbilitySlice;
 
 /**
  * MainAbility.

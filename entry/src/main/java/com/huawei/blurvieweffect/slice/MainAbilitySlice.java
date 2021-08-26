@@ -16,11 +16,11 @@
 
 package com.huawei.blurvieweffect.slice;
 
+import ohos.aafwk.ability.AbilitySlice;
+import ohos.aafwk.content.Intent;
 import com.huawei.blurvieweffect.ResourceTable;
 import ir.mirrajabi.viewfilter.core.ViewFilter;
 import ir.mirrajabi.viewfilter.renderers.BlurRenderer;
-import ohos.aafwk.ability.AbilitySlice;
-import ohos.aafwk.content.Intent;
 
 /**
  * MainAbilitySlice.
