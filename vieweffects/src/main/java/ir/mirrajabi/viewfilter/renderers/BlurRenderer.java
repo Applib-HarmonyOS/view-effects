@@ -13,10 +13,10 @@ import ohos.media.image.common.Size;
  */
 
 public class BlurRenderer implements IRenderer {
-    int rSum;
+    int rsumCal;
     int gSum;
     int bSum;
-    int xAxis;
+    int xaxisCal;
     int yAxis;
     int iVar;
     int pVar;
@@ -99,17 +99,17 @@ public class BlurRenderer implements IRenderer {
 
 
     private void xAxis() {
-        for (xAxis = 0; xAxis < width; xAxis++) {
-            rinSum = ginSum = binSum = routSum = goutSum = boutSum = rSum = gSum = bSum = 0;
+        for (xaxisCal = 0; xaxisCal < width; xaxisCal++) {
+            rinSum = ginSum = binSum = routSum = goutSum = boutSum = rsumCal = gSum = bSum = 0;
             yp = -blurRadius * width;
             for (iVar = -blurRadius; iVar <= blurRadius; iVar++) {
-                yi = Math.max(0, yp) + xAxis;
+                yi = Math.max(0, yp) + xaxisCal;
                 sir = stack[iVar + blurRadius];
                 sir[0] = rArr[yi];
                 sir[1] = gArr[yi];
                 sir[2] = bArr[yi];
                 rbs = r1 - Math.abs(iVar);
-                rSum += rArr[yi] * rbs;
+                rsumCal += rArr[yi] * rbs;
                 gSum += gArr[yi] * rbs;
                 bSum += bArr[yi] * rbs;
                 if (iVar > 0) {
@@ -125,11 +125,11 @@ public class BlurRenderer implements IRenderer {
                     yp += width;
                 }
             }
-            yi = xAxis;
+            yi = xaxisCal;
             stackPointer = blurRadius;
             for (yAxis = 0; yAxis < height; yAxis++) {
-                pix[yi] = (0xff000000 & pix[yi]) | (dv[rSum] << 16) | (dv[gSum] << 8) | dv[bSum];
-                rSum -= routSum;
+                pix[yi] = (0xff000000 & pix[yi]) | (dv[rsumCal] << 16) | (dv[gSum] << 8) | dv[bSum];
+                rsumCal -= routSum;
                 gSum -= goutSum;
                 bSum -= boutSum;
                 stackStart = stackPointer - blurRadius + div;
@@ -137,17 +137,17 @@ public class BlurRenderer implements IRenderer {
                 routSum -= sir[0];
                 goutSum -= sir[1];
                 boutSum -= sir[2];
-                if (xAxis == 0) {
+                if (xaxisCal == 0) {
                     vMin[yAxis] = Math.min(yAxis + r1, hm) * width;
                 }
-                pVar = xAxis + vMin[yAxis];
+                pVar = xaxisCal + vMin[yAxis];
                 sir[0] = rArr[pVar];
                 sir[1] = gArr[pVar];
                 sir[2] = bArr[pVar];
                 rinSum += sir[0];
                 ginSum += sir[1];
                 binSum += sir[2];
-                rSum += rinSum;
+                rsumCal += rinSum;
                 gSum += ginSum;
                 bSum += binSum;
                 stackPointer = (stackPointer + 1) % div;
@@ -165,7 +165,7 @@ public class BlurRenderer implements IRenderer {
 
     private void yAxis() {
         for (yAxis = 0; yAxis < height; yAxis++) {
-            rinSum = ginSum = binSum = routSum = goutSum = boutSum = rSum = gSum = bSum = 0;
+            rinSum = ginSum = binSum = routSum = goutSum = boutSum = rsumCal = gSum = bSum = 0;
             for (iVar = -blurRadius; iVar <= blurRadius; iVar++) {
                 pVar = pix[yi + Math.min(wm, Math.max(iVar, 0))];
                 sir = stack[iVar + blurRadius];
@@ -173,7 +173,7 @@ public class BlurRenderer implements IRenderer {
                 sir[1] = (pVar & 0x00ff00) >> 8;
                 sir[2] = (pVar & 0x0000ff);
                 rbs = r1 - Math.abs(iVar);
-                rSum += sir[0] * rbs;
+                rsumCal += sir[0] * rbs;
                 gSum += sir[1] * rbs;
                 bSum += sir[2] * rbs;
                 if (iVar > 0) {
@@ -187,11 +187,11 @@ public class BlurRenderer implements IRenderer {
                 }
             }
             stackPointer = blurRadius;
-            for (xAxis = 0; xAxis < width; xAxis++) {
-                rArr[yi] = dv[rSum];
+            for (xaxisCal = 0; xaxisCal < width; xaxisCal++) {
+                rArr[yi] = dv[rsumCal];
                 gArr[yi] = dv[gSum];
                 bArr[yi] = dv[bSum];
-                rSum -= routSum;
+                rsumCal -= routSum;
                 gSum -= goutSum;
                 bSum -= boutSum;
                 stackStart = stackPointer - blurRadius + div;
@@ -200,16 +200,16 @@ public class BlurRenderer implements IRenderer {
                 goutSum -= sir[1];
                 boutSum -= sir[2];
                 if (yAxis == 0) {
-                    vMin[xAxis] = Math.min(xAxis + blurRadius + 1, wm);
+                    vMin[xaxisCal] = Math.min(xaxisCal + blurRadius + 1, wm);
                 }
-                pVar = pix[yw + vMin[xAxis]];
+                pVar = pix[yw + vMin[xaxisCal]];
                 sir[0] = (pVar & 0xff0000) >> 16;
                 sir[1] = (pVar & 0x00ff00) >> 8;
                 sir[2] = (pVar & 0x0000ff);
                 rinSum += sir[0];
                 ginSum += sir[1];
                 binSum += sir[2];
-                rSum += rinSum;
+                rsumCal += rinSum;
                 gSum += ginSum;
                 bSum += binSum;
                 stackPointer = (stackPointer + 1) % div;
