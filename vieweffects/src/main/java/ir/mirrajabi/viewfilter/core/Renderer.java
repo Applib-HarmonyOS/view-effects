@@ -8,6 +8,6 @@ import ohos.media.image.PixelMap;
  * @since 2021-08-06
  */
 
-public interface IRenderer {
+public interface Renderer {
     PixelMap render(PixelMap sentBitMap);
 }

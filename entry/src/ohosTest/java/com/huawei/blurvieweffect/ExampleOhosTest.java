@@ -24,9 +24,7 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 /**
- * ExampleOhosTest.
- *
- * @since 2021-08-06
+ * To execute the UnitTestcases.
  */
 
 public class ExampleOhosTest {

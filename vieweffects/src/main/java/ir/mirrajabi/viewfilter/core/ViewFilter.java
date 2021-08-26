@@ -9,12 +9,12 @@ import ohos.media.image.PixelMap;
 /**
  * ViewFilter.
  *
- * @since 2021-08-06
+ * Getting background imageView and applying filter
  */
 
 public class ViewFilter {
     private static ViewFilter instance = null;
-    private IRenderer renderer;
+    private Renderer renderer;
 
     public static ViewFilter getInstance() {
         if (instance == null) {
@@ -23,7 +23,7 @@ public class ViewFilter {
         return instance;
     }
 
-    public ViewFilter setRenderer(IRenderer renderer) {
+    public ViewFilter setRenderer(Renderer renderer) {
         this.renderer = renderer;
         return this;
     }
