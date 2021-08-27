@@ -7,11 +7,8 @@ import ohos.eventhandler.EventRunner;
 import ohos.media.image.PixelMap;
 
 /**
- * ViewFilter.
- *
  * Getting background imageView and applying filter.
  */
-
 public class ViewFilter {
     private static ViewFilter instance = null;
     private Renderer renderer;
