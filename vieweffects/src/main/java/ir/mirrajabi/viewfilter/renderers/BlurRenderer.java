@@ -7,8 +7,6 @@ import ir.mirrajabi.viewfilter.core.Renderer;
 
 /**
  * BlurRenderer algorithm to add blurr to view.
- *
- * @since 2021-08-06.
  */
 
 public class BlurRenderer implements Renderer {

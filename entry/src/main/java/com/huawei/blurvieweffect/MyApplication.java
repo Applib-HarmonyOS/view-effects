@@ -20,8 +20,6 @@ import ohos.aafwk.ability.AbilityPackage;
 
 /**
  * MyApplication.
- *
- * @since 2021-08-06
  */
 
 public class MyApplication extends AbilityPackage {

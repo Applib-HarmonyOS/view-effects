@@ -4,8 +4,6 @@ import ohos.media.image.PixelMap;
 
 /**
  * IRenderer.
- *
- * @since 2021-08-06
  */
 
 public interface Renderer {

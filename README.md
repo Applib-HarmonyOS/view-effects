@@ -21,14 +21,22 @@
 
 ## Installation
 
-In order to use the library, add the following line to your **root** gradle file(entry/build.gradle):
+1 .For using vieweffects module in sample app, include the source code and add the below dependencies in entry/build.gradle to generate hap/support.har.
 
 ```groovy
-dependencies {
+dependencies{
     implementation fileTree(dir: 'libs', include: ['*.jar', '*.har'])
+    implementation project(path: ':vieweffects')
     testImplementation 'junit:junit:4.13'
-    ohosTestImplementation 'com.huawei.ohos.testkit:runner:1.0.0.100'
-    implementation project(":vieweffects")
+}
+```
+2 .For using vieweffects in separate application using har file, add the har file in the entry/libs folder and add the dependencies in entry/build.gradle file.
+
+```groovy
+dependencies{
+    implementation fileTree(dir: 'libs', include: ['*.jar', '*.har'])
+    implementation project(path: ':vieweffects')
+    testImplementation 'junit:junit:4.13'
 }
 ```
 ​

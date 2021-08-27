@@ -24,8 +24,6 @@ import ir.mirrajabi.viewfilter.renderers.BlurRenderer;
 
 /**
  * MainAbilitySlice.
- *
- * @since 2021-08-06
  */
 
 public class MainAbilitySlice extends AbilitySlice {

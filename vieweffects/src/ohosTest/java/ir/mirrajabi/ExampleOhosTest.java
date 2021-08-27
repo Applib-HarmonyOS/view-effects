@@ -7,8 +7,6 @@ import static org.junit.Assert.assertEquals;
 
 /**
  * ExampleOhosTest.
- *
- * @since 2021-08-06
  */
 
 public class ExampleOhosTest {

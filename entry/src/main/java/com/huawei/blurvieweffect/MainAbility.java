@@ -22,8 +22,6 @@ import com.huawei.blurvieweffect.slice.MainAbilitySlice;
 
 /**
  * MainAbility.
- *
- * @since 2021-08-06
  */
 
 public class MainAbility extends Ability {
