@@ -39,6 +39,14 @@ dependencies{
     testImplementation 'junit:junit:4.13'
 }
 ```
+3 .For using vieweffects from remote repository in separate application, add below dependencies in entry/build.gradle file.
+
+```groovy
+dependencies{
+    implementation 'dev.applibgroup:vieweffects:1.0.0'
+    testImplementation 'junit:junit:4.13'
+}
+```
 ​
 ## Usage
 
